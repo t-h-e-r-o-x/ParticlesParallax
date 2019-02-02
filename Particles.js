@@ -18,6 +18,8 @@ class Star{
     this.z = cvs.width;
     this.sx = 0;
     this.sy = 0;
+    this.px;
+    this.py;
     this.kx = 0.001;
     this.ky = 0.009;
   }
@@ -32,6 +34,8 @@ class Star{
   create(){
     ctx.beginPath();
     ctx.fillStyle = "gray";
+    this.px = this.sx;
+    this.py = this.sy;
     this.sx = map(this.x/this.z , -1 , 1 , -cvs.width/2 , cvs.width/2);
     this.sy = map(this.y/this.z, -1 , 1 , -cvs.height/2 , cvs.height/2);
 
@@ -70,6 +74,7 @@ draw();
 
 setInterval(function(){
   for(i=0 ; i < stars.length ; i++)
-  ctx.clearRect(-cvs.width/2, -cvs.height/2,cvs.width , cvs.height);
+  ctx.fillStyle = "rgba(0,0,0,0.1)"
+  ctx.fillRect(-cvs.width/2, -cvs.height/2,cvs.width , cvs.height);
   draw();
 },1);
