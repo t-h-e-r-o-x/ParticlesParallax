@@ -27,13 +27,13 @@ class Star{
 
   update(){
     this.z = this.z/1.005;
-    this.kx += 0.00454;
+    this.kx += 0.00954;
     this.ky += 0.00594;
   }
 
   create(){
     ctx.beginPath();
-    ctx.fillStyle = "gray";
+    ctx.fillStyle = "blue";
     this.px = this.sx;
     this.py = this.sy;
     this.sx = map(this.x/this.z , -1 , 1 , -cvs.width/2 , cvs.width/2);
@@ -41,7 +41,7 @@ class Star{
 
     if(Math.abs(this.sx) <= cvs.width/2 || Math.abs(this.sy) <= cvs.height/2){
       ctx.beginPath();
-      ctx.ellipse(this.sx , this.sy , this.kx ,this.ky, this.x + this.y , 0 , 2* Math.PI);
+      ctx.ellipse(this.sx , this.sy , this.kx ,this.ky, this.sx + this.sy , 0 , 2* Math.PI);
       ctx.fill();
       ctx.closePath();
 
@@ -53,7 +53,7 @@ class Star{
 }
 
 function initialize(){
-  for(i = 0; i < 500 ; i++){
+  for(i = 0; i <500 ; i++){
     stars[i] = new Star();
     }
 }
